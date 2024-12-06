@@ -1,5 +1,17 @@
 {
+  "name": "hiddenthread",
+  "version": "0.5.11",
+  "description": "Steganography for 2ch",
+  "main": "HiddenThread.user.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "browserify src/makaba.js > _tmp.js && cat src/userscript.meta.js _tmp.js > HiddenThread.user.js && rm _tmp.js"
+  },
+  "author": "anon25519",
+  "license": "WTFPL",
   "dependencies": {
-    "browserify": "latest",
+    "browserify": "^17.0.1"
   }
 }
