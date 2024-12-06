@@ -1,0 +1,18 @@
+name: Node.js CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22.x
+        cache: 'npm'
+    - run: npm ci
+    - run: npm install -g browserify
+    - run: browserify src/makaba.js > _tmp.js
+    - run: cat src/userscript.meta.js _tmp.js > HiddenThread.user.js
+    - uses: actions/upload-artifact@v4
+      with:
+        path: HiddenThread.user.js
