@@ -10,7 +10,7 @@ jobs:
         node-version: 22.x
         cache: 'npm'
     - run: npm ci
-    - run: npm build
+    - run: npm run build
     - uses: actions/upload-artifact@v4
       with:
         path: HiddenThread.user.js
