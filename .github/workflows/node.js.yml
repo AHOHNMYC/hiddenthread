@@ -10,9 +10,7 @@ jobs:
         node-version: 22.x
         cache: 'npm'
     - run: npm ci
-    - run: npm install -g browserify
-    - run: browserify src/makaba.js > _tmp.js
-    - run: cat src/userscript.meta.js _tmp.js > HiddenThread.user.js
+    - run: npm build
     - uses: actions/upload-artifact@v4
       with:
         path: HiddenThread.user.js
